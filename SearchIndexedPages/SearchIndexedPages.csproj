@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Google\GoogleIndexedPages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +52,10 @@
     <ProjectReference Include="..\..\..\..\Projects\lokad-data-platform\Platform.Core\Platform.Core.csproj">
       <Project>{39f04669-caa7-4f30-8be2-6cf79f49f2e6}</Project>
       <Name>Platform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{49008365-564f-4258-a777-a81dc60a53da}</Project>
+      <Name>Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

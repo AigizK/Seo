@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareExtensions.cs" />
+    <Compile Include="Contract\GoogleSearch\when_google_search.cs" />
+    <Compile Include="Contract\KeywordResultClass\when_convert_engine_result.cs" />
+    <Compile Include="Contract\KeywordResultClass\when_convert_keyword_result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchUrl\Google\GoogleKeywordSearchClass\when_good_keyword.cs" />
   </ItemGroup>
@@ -49,6 +53,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{49008365-564f-4258-a777-a81dc60a53da}</Project>
+      <Name>Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SearchIndexedPages\SearchIndexedPages.csproj">
+      <Project>{81aab9db-e290-4abc-b78e-8fa16f9cdfae}</Project>
+      <Name>SearchIndexedPages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SearchUrl\SearchUrl.csproj">
       <Project>{0f52cc70-b68a-409c-9f8c-2478efcd0759}</Project>
       <Name>SearchUrl</Name>

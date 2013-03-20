@@ -1,4 +1,5 @@
 ﻿using System;
+using Contract;
 using NUnit.Framework;
 using SearchUrl.Google;
 
@@ -20,7 +21,7 @@ namespace UnitTest.SearchUrl.Google.GoogleKeywordSearchClass
         {
             var result = new GoogleKeywordSearch().Search("жалюзи");
 
-            Assert.AreEqual("Google", result.Engine);
+            Assert.AreEqual(Engine.Google, (Engine)result.Engine);
         }
 
         [Test]
