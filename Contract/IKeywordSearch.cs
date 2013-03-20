@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SearchUrl.Common
+﻿namespace Contract
 {
     public interface IKeywordSearch
     {

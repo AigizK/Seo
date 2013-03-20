@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Core", "..\..\..\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchIndexedPages", "SearchIndexedPages\SearchIndexedPages.csproj", "{81AAB9DB-E290-4ABC-B78E-8FA16F9CDFAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Contract\Contract.csproj", "{49008365-564F-4258-A777-A81DC60A53DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AAB9DB-E290-4ABC-B78E-8FA16F9CDFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AAB9DB-E290-4ABC-B78E-8FA16F9CDFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AAB9DB-E290-4ABC-B78E-8FA16F9CDFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AAB9DB-E290-4ABC-B78E-8FA16F9CDFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49008365-564F-4258-A777-A81DC60A53DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49008365-564F-4258-A777-A81DC60A53DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49008365-564F-4258-A777-A81DC60A53DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49008365-564F-4258-A777-A81DC60A53DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

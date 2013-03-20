@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
-using HtmlAgilityPack;
-using SearchUrl.Common;
+using Contract;
 
 namespace SearchUrl.Google
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace SearchUrl.Common
+namespace Contract
 {
     public class KeywordResult
     {
