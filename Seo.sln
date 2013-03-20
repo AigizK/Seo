@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchUrl", "SearchUrl\SearchUrl.csproj", "{0F52CC70-B68A-409C-9F8C-2478EFCD0759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Core", "..\..\..\Projects\lokad-data-platform\Platform.Core\Platform.Core.csproj", "{39F04669-CAA7-4F30-8BE2-6CF79F49F2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F52CC70-B68A-409C-9F8C-2478EFCD0759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F52CC70-B68A-409C-9F8C-2478EFCD0759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F52CC70-B68A-409C-9F8C-2478EFCD0759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F52CC70-B68A-409C-9F8C-2478EFCD0759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F04669-CAA7-4F30-8BE2-6CF79F49F2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F04669-CAA7-4F30-8BE2-6CF79F49F2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F04669-CAA7-4F30-8BE2-6CF79F49F2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F04669-CAA7-4F30-8BE2-6CF79F49F2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBDD6DD-9019-49B9-ADD2-1C5D63487652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
