@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using Platform;
+
+namespace TestClient
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Application.Start(Environment.Exit);
+            // This is extremely important to enable high throughput 
+            // of individual messages
+            ServicePointManager.UseNagleAlgorithm = false;
+            ServicePointManager.DefaultConnectionLimit = 48;
+
+            var options = new ClientOptions();
+
+            if (!Platform.CommandLine.CommandLineParser.Default.ParseArguments(args, options))
+            {
+                Console.WriteLine(options.GetUsage());
+                return;
+            }
+
+            try
+            {
+                if (options.Command.Count == 0 && File.Exists("Readme.md"))
+                {
+                    Console.WriteLine(File.ReadAllText("Readme.md"));
+                }
+
+                foreach (var pair in options.GetPairs())
+                {
+                    Console.WriteLine("  {0,15} : {1}", pair.Key.ToUpperInvariant(), pair.Value);
+                }
+                Console.WriteLine();
+
+                var client = new Client(options);
+                client.Run();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("ERROR:");
+                Console.Write(exception.Message);
+                Console.WriteLine();
+            }
+        }
+    }
+}

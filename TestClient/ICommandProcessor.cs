@@ -1,0 +1,36 @@
+﻿using System.Threading;
+using Platform;
+
+namespace TestClient
+{
+    /// <summary>
+    /// Single command processor of a test client
+    /// </summary>
+    public interface ICommandProcessor
+    {
+        /// <summary>
+        /// Keyword to trigger this processor
+        /// </summary>
+        string Key { get; }
+        /// <summary>
+        /// Human-readable description
+        /// </summary>
+        string Usage { get; }
+        /// <summary>
+        /// Implement this to execute processor
+        /// </summary>
+        bool Execute(CommandProcessorContext context, CancellationToken token, string[] args);
+    }
+
+    public class CommandProcessorContext
+    {
+        public readonly Client Client;
+        public ILogger Log;
+
+        public CommandProcessorContext(Client client, ILogger log)
+        {
+            Log = log;
+            Client = client;
+        }
+    }
+}
