@@ -18,7 +18,7 @@ namespace SearchUrl.Google
                     Engine =Engine.Google,
                     Version = "0.0.1",
                     Keyword = keyword,
-                    EngineResults =new GoogleSearchUtility().GetEngineResults(keyword)
+                    EngineResults =new GoogleSearchUtility().GetEngineResults(keyword,0, 10)
                 };
         }
     }

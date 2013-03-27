@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -28,35 +29,11 @@ namespace SearchIndexedPages
                         continue;
 
                     var keywordResult = KeywordResult.TryGetFromBinary(eventsWithMetaData.EventData);
-                    if (keywordResult.Engine != Engine.Google)
-                        continue;
 
-                    foreach (EngineResult engineResult in keywordResult.EngineResults)
+                    for (int i = 0; i < keywordResult.EngineResults.Count; i++)
                     {
-                        var site = UrlUtility.StandartSiteUrl(engineResult.Url);
-                        var indexedPages = new List<EngineResult>();
-
-                        switch (keywordResult.Engine)
-                        {
-                            case Engine.Google:
-                                indexedPages = new GoogleIndexedPages().GetPages(site);
-                                break;
-                            case Engine.None:
-                            case Engine.Yandex:
-                            default:
-                                throw new ArgumentOutOfRangeException();
-                        }
-
-                        foreach (EngineResult indexedPage in indexedPages)
-                        {
-                            store.WriteEvent("IndexedPage",
-                                new IndexedPage
-                                    {
-                                        Date = DateTime.UtcNow,
-                                        Engine = keywordResult.Engine,
-                                        EngineResult = indexedPage
-                                    }.ToBinary());
-                        }
+                        EngineResult engineResult = keywordResult.EngineResults[i];
+                        new IndexedPages().FindSiteIndexedPages(engineResult.Url, keywordResult.Engine);
                     }
                 }
                 Thread.Sleep(1000);

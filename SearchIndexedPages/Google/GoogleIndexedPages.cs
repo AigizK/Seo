@@ -12,11 +12,11 @@ namespace SearchIndexedPages.Google
             int pageIndex = 0;
             while (true)
             {
-                var currentItems = new GoogleSearchUtility().GetEngineResults("site:" + site, pageIndex);
+                var currentItems = new GoogleSearchUtility().GetEngineResults("site:" + site, pageIndex, 5);
                 if (currentItems.Count == 0)
                     break;
 
-                if (ResultContainsLastResult(result, currentItems)) 
+                if (ResultContainsLastResult(result, currentItems))
                     break;
 
                 result.AddRange(currentItems);
