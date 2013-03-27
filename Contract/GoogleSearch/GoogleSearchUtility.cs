@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Contract.GoogleSearch
 {
     public class GoogleSearchUtility
     {
-        public IList<EngineResult> GetEngineResults(string keyword, int pageIndex = 0)
+        public IList<EngineResult> GetEngineResults(string keyword, int pageIndex = 0, int sleepSeconds = 0)
         {
-            var html = GetHtml(keyword, pageIndex);
+            var html = GetHtml(keyword, pageIndex, sleepSeconds);
 
             if (!html.Contains("id=\"ires\""))
                 throw new InvalidDataException("не найден контент с результатами");
@@ -41,9 +42,17 @@ namespace Contract.GoogleSearch
                     )
                     continue;
 
-                engineResult.Title = GetTitle(engineResult.ItemHtml);
-                engineResult.Url = GetUrl(engineResult.ItemHtml);
-                result.Add(engineResult);
+                try
+                {
+                    engineResult.Title = GetTitle(engineResult.ItemHtml);
+                    engineResult.Url = GetUrl(engineResult.ItemHtml);
+                    result.Add(engineResult);
+                }
+                catch (Exception e)
+                {
+                   //todo писать в лог
+                }
+                
             }
 
             return result;
@@ -71,7 +80,7 @@ namespace Contract.GoogleSearch
             return Regex.Replace(itemHtml.Substring(startPosition, endPosition), @"<[^>]*>", String.Empty);
         }
 
-        static string GetHtml(string key, int pageIndex)
+        static string GetHtml(string key, int pageIndex, int timeoutSecond)
         {
             key = key.Trim();
             string responseData = "";
@@ -91,7 +100,8 @@ namespace Contract.GoogleSearch
                 request.Method = "GET";
 
                 request.CookieContainer = new CookieContainer();
-                request.CookieContainer.Add(new Uri("http://www.google.ru"), new Cookie("PREF", "ID=9dbfa5884be76668:U=d92829bd9034e984:FF=0:LD=ru:NR=100:NW=1:TM=1362901947:LM=1362978808:GBV=1:SG=2:S=Gf4fp9hvTWVS4AKZ"));
+                request.CookieContainer.Add(new Uri("http://www.google.ru"), new Cookie("PREF", "FF=0:LD=ru:NR=100:NW=1:GBV=1:SG=2"));
+                //request.CookieContainer.Add(new Uri("http://www.google.ru"), new Cookie("PREF", "ID=9dbfa5884be76668:U=d92829bd9034e984:FF=0:LD=ru:NR=100:NW=1:TM=1362901947:LM=1362978808:GBV=1:SG=2:S=Gf4fp9hvTWVS4AKZ"));
                 //request.CookieContainer.Add(new Uri("http://www.google.ru"), new Cookie("NID", "67=KEvpMo2lMnW8gjWe9nMHImKD5gXixGhtHnqBIa63i2Uu6PI5SQL7lXRFdL-pME3bjOY8RHM2X7klBWEVWX_NxWQpaJn28gZJUpSlDKGJ_Yikrur78ou5JcBtpLYfvaDt"));
 
                 using (var hwresponse = (HttpWebResponse)request.GetResponse())
@@ -103,6 +113,8 @@ namespace Contract.GoogleSearch
                                 responseData = myStreamReader.ReadToEnd();
                     }
                 }
+
+                Thread.Sleep(timeoutSecond);
             }
             catch (Exception e)
             {
